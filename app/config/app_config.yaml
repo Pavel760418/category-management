@@ -1,9 +1,16 @@
 app_name: Category Management BI
 category_default: Товары для животных
 currency: RUB
+locale: ru
 ui:
   default_category_role: routine
-  upload_help_text: Загрузите один или несколько Excel-файлов. Система рассчитает доступную аналитику даже при неполном наборе данных.
+  language: ru
+  upload_help_text: >
+    Загрузите один или несколько Excel-файлов по русскоязычным шаблонам.
+    Система рассчитает доступную аналитику даже при неполном наборе данных.
+  templates_note: >
+    Все шаблоны для пользователя — на русском языке (имена файлов, листы, колонки, инструкции).
+    Внутренние технические ключи используются только в коде и расчётах.
 logging:
   level: INFO
   file: data/output/app.log

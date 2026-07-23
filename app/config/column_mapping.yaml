@@ -1,18 +1,195 @@
+"""Совместимый алиас-словарь для автосопоставления.
+
+Основной источник правды — field_schema.yaml (через SchemaService).
+Этот файл сохранён как справочный снимок и для обратной совместимости.
+Предпочтительнее не править его вручную: обновляйте field_schema.yaml.
+"""
+
 canonical_columns:
-  sku_code: ["sku", "sku_code", "код sku", "код", "артикул", "номенклатура код"]
-  sku_name: ["sku_name", "наименование", "товар", "номенклатура", "sku name"]
-  category: ["category", "категория"]
-  subcategory: ["subcategory", "подкатегория", "товарная группа", "group"]
-  sales_value: ["sales_value", "выручка", "продажи руб", "оборот", "sales rub"]
-  sales_qty: ["sales_qty", "шт", "количество", "продажи шт", "qty"]
-  cogs_value: ["cogs", "cogs_value", "себестоимость", "себестоимость расхода"]
-  stock_qty: ["stock_qty", "остаток", "остаток шт", "stock"]
-  purchase_price: ["purchase_price", "закуп цена", "цена закупки", "средняя закупочная"]
-  shelf_meters: ["shelf_meters", "полка м", "погонные метры", "длина выкладки"]
-  prior_sales_value: ["prior_sales_value", "продажи пг руб", "sales ly", "lfl sales prior"]
-  prior_sales_qty: ["prior_sales_qty", "продажи пг шт", "qty ly"]
-  prior_gp_value: ["prior_gp_value", "вп пг", "gp ly"]
-  store_name: ["store_name", "магазин", "store"]
-  format_name: ["format_name", "формат", "store_format"]
-  period_months: ["period_months", "период мес", "months"]
-  current_role: ["current_role", "роль sku", "роль"]
+  sku_code:
+    - "Артикул SKU"
+    - "артикул sku"
+    - "артикул"
+    - "код sku"
+    - "код"
+    - "номенклатура код"
+    - "sku"
+    - "sku_code"
+    - "sku id"
+    - "sku_id"
+  sku_name:
+    - "Наименование товара"
+    - "наименование товара"
+    - "наименование"
+    - "товар"
+    - "номенклатура"
+    - "sku_name"
+    - "product_name"
+    - "sku name"
+    - "name"
+  category:
+    - "Категория"
+    - "категория"
+    - "товарная категория"
+    - "category"
+  subcategory:
+    - "Подкатегория"
+    - "подкатегория"
+    - "товарная группа"
+    - "группа"
+    - "subcategory"
+    - "group"
+    - "product_group"
+  sales_value:
+    - "Продажи, руб."
+    - "продажи, руб."
+    - "продажи руб"
+    - "выручка"
+    - "оборот"
+    - "sales_value"
+    - "sales rub"
+    - "revenue"
+  sales_qty:
+    - "Продажи, шт."
+    - "продажи, шт."
+    - "продажи шт"
+    - "количество"
+    - "шт"
+    - "sales_qty"
+    - "qty"
+    - "quantity"
+  cogs_value:
+    - "Себестоимость, руб."
+    - "себестоимость, руб."
+    - "себестоимость"
+    - "себестоимость расхода"
+    - "cogs"
+    - "cogs_value"
+    - "cost of goods"
+  stock_qty:
+    - "Остаток, шт."
+    - "остаток, шт."
+    - "остаток"
+    - "остаток шт"
+    - "stock_qty"
+    - "stock"
+    - "inventory_qty"
+  purchase_price:
+    - "Цена закупки, руб."
+    - "цена закупки, руб."
+    - "цена закупки"
+    - "закуп цена"
+    - "средняя закупочная"
+    - "purchase_price"
+    - "buy_price"
+    - "cost_price"
+  shelf_meters:
+    - "Длина выкладки, м"
+    - "длина выкладки, м"
+    - "длина выкладки"
+    - "полка м"
+    - "погонные метры"
+    - "shelf_meters"
+    - "shelf_length_m"
+    - "shelf meters"
+  prior_sales_value:
+    - "Продажи LFL, руб."
+    - "продажи lfl, руб."
+    - "продажи lfl руб"
+    - "продажи пг руб"
+    - "prior_sales_value"
+    - "lfl_sales_value"
+    - "sales ly"
+  prior_sales_qty:
+    - "Продажи LFL, шт."
+    - "продажи lfl, шт."
+    - "продажи lfl шт"
+    - "продажи пг шт"
+    - "prior_sales_qty"
+    - "lfl_sales_qty"
+    - "qty ly"
+  prior_gp_value:
+    - "Валовая прибыль LFL, руб."
+    - "валовая прибыль lfl, руб."
+    - "валовая прибыль lfl"
+    - "вп пг"
+    - "prior_gp_value"
+    - "lfl_gp_value"
+    - "gp ly"
+  store_name:
+    - "Магазин"
+    - "магазин"
+    - "торговая точка"
+    - "store_name"
+    - "store"
+  format_name:
+    - "Формат магазина"
+    - "формат магазина"
+    - "формат"
+    - "format_name"
+    - "store_format"
+  period_months:
+    - "Период, мес."
+    - "период, мес."
+    - "период мес"
+    - "период"
+    - "period_months"
+    - "months"
+  current_role:
+    - "Роль SKU"
+    - "роль sku"
+    - "роль"
+    - "current_role"
+    - "sku_role"
+  competitor_name:
+    - "Конкурент"
+    - "конкурент"
+    - "название конкурента"
+    - "competitor_name"
+    - "competitor"
+  price_index:
+    - "Ценовой индекс"
+    - "ценовой индекс"
+    - "индекс цен"
+    - "price_index"
+  width_sku:
+    - "Ширина ассортимента, SKU"
+    - "ширина ассортимента"
+    - "width_sku"
+  depth:
+    - "Глубина ассортимента"
+    - "глубина"
+    - "depth"
+  stm_share:
+    - "Доля СТМ"
+    - "доля стм"
+    - "stm_share"
+  promo_share:
+    - "Доля промо"
+    - "доля промо"
+    - "promo_share"
+  comments:
+    - "Комментарий"
+    - "комментарий"
+    - "comments"
+    - "notes"
+  metric_name:
+    - "Показатель"
+    - "показатель"
+    - "метрика"
+    - "metric_name"
+  target_3m:
+    - "Цель на 3 мес."
+    - "цель на 3 мес."
+    - "цель 3 мес"
+    - "target_3m"
+  target_6m:
+    - "Цель на 6 мес."
+    - "цель на 6 мес."
+    - "цель 6 мес"
+    - "target_6m"
+  notes:
+    - "Пояснение"
+    - "пояснение"
+    - "примечание"
+    - "notes"

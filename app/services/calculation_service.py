@@ -2,12 +2,14 @@ import numpy as np
 import pandas as pd
 from app.core.status import status_by_ratio
 from app.services.config_service import load_yaml
+from app.services.schema_service import get_schema_service
 
 
 class CalculationService:
     def __init__(self):
         self.kpi_cfg = load_yaml("kpi_config.yaml")
         self.norms = self.kpi_cfg["norms"]
+        self.schema = get_schema_service()
 
     def enrich_base(self, df: pd.DataFrame) -> pd.DataFrame:
         if df.empty:
@@ -44,7 +46,8 @@ class CalculationService:
         }
         if goals is not None and not goals.empty and "metric_name" in goals.columns:
             for _, row in goals.iterrows():
-                metric = str(row.get("metric_name", "")).strip().lower()
+                raw_metric = row.get("metric_name", "")
+                metric = self.schema.resolve_metric_code(raw_metric) or str(raw_metric).strip().lower()
                 if metric in targets and pd.notna(row.get("target_6m")):
                     targets[metric] = row.get("target_6m")
         actuals = {
