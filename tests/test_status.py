@@ -14,6 +14,9 @@ from app.services.calculation_service import CalculationService
 from app.utils.io import read_template_excel
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
 def test_up_metric_ok():
     ratio, status = status_by_ratio(120, 100, "up")
     assert ratio >= 1
@@ -24,6 +27,18 @@ def test_down_metric_exceeded():
     ratio, status = status_by_ratio(178, 21, "down", 1.3)
     assert ratio < 1
     assert "Превышение" in status or "Риск" in status
+
+
+def test_streamlit_cloud_entrypoint_exists():
+    """Streamlit Community Cloud по умолчанию требует streamlit_app.py в корне."""
+    entry = ROOT / "streamlit_app.py"
+    assert entry.exists(), "В корне репозитория должен быть streamlit_app.py для деплоя"
+    text = entry.read_text(encoding="utf-8")
+    assert "render_home" in text
+    pages_dir = ROOT / "pages"
+    assert pages_dir.is_dir(), "Каталог pages/ должен быть рядом с streamlit_app.py"
+    page_files = list(pages_dir.glob("*.py"))
+    assert len(page_files) >= 4
 
 
 def test_schema_display_names_are_russian():

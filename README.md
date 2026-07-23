@@ -61,8 +61,10 @@ Production-like Python/Streamlit проект для перевода Excel-ин
 ## Структура проекта
 
 ```text
+streamlit_app.py       # entry point для Streamlit Cloud / локального запуска
+pages/                 # multipage-страницы Streamlit (рядом с entry point)
 app/
-  pages/               # страницы Streamlit
+  home_page.py         # главная страница
   components/          # UI-компоненты
   services/            # загрузка, валидация, маппинг, экспорт, schema
   core/                # доменные модели и KPI-логика
@@ -159,7 +161,13 @@ scripts/
 
 ```bash
 pip install -r requirements.txt
-streamlit run app/main.py
+streamlit run streamlit_app.py
+```
+
+Или через скрипт:
+
+```bash
+bash scripts/run_local.sh
 ```
 
 Тесты:
@@ -167,6 +175,20 @@ streamlit run app/main.py
 ```bash
 PYTHONPATH=. pytest tests/ -q
 ```
+
+## Деплой на Streamlit Community Cloud
+
+Причина типовой ошибки `File does not exist: streamlit_app.py`: Cloud по умолчанию
+ожидает файл **`streamlit_app.py` в корне репозитория**. Точка входа приложения —
+именно он (не `app/main.py`).
+
+Настройки приложения на share.streamlit.io:
+- **Repository**: этот GitHub-репозиторий
+- **Branch**: `main` (или ветка с актуальным кодом)
+- **Main file path**: `streamlit_app.py`
+
+Multipage-страницы находятся в корневом каталоге `pages/` — Streamlit подхватывает
+их автоматически рядом с `streamlit_app.py`.
 
 ## GitHub-ready
 
