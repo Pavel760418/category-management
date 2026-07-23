@@ -1,0 +1,14 @@
+colors:
+  background: "#F7F6F2"
+  surface: "#F9F8F5"
+  surface_alt: "#F3F0EC"
+  border: "#D4D1CA"
+  text: "#28251D"
+  muted: "#7A7974"
+  primary: "#01696F"
+  success: "#437A22"
+  warning: "#D19900"
+  danger: "#A13544"
+fonts:
+  body: "Inter, Arial, sans-serif"
+  heading: "Inter, Arial, sans-serif"

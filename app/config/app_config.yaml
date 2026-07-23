@@ -1,0 +1,9 @@
+app_name: Category Management BI
+category_default: Товары для животных
+currency: RUB
+ui:
+  default_category_role: routine
+  upload_help_text: Загрузите один или несколько Excel-файлов. Система рассчитает доступную аналитику даже при неполном наборе данных.
+logging:
+  level: INFO
+  file: data/output/app.log

@@ -1,0 +1,15 @@
+:root {
+  --bg: #F7F6F2;
+  --surface: #F9F8F5;
+  --surface-2: #F3F0EC;
+  --text: #28251D;
+  --muted: #7A7974;
+  --primary: #01696F;
+  --success: #437A22;
+  --warning: #D19900;
+  --danger: #A13544;
+  --border: #D4D1CA;
+}
+.block-container {padding-top: 1.2rem; padding-bottom: 2rem;}
+div[data-testid="stMetric"] {background: var(--surface); border: 1px solid var(--border); padding: 12px; border-radius: 16px;}
+html, body, [class*="css"] {font-family: Inter, Arial, sans-serif;}
