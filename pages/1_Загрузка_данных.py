@@ -14,7 +14,10 @@ render_upload_help()
 
 schema = get_schema_service()
 ms = MappingService(schema)
-tpl_service = TemplateService(str(Path(__file__).resolve().parents[1] / "templates"), schema=schema)
+tpl_service = TemplateService(
+    str(Path(__file__).resolve().parents[1] / "app" / "templates"),
+    schema=schema,
+)
 created = tpl_service.create_all()
 
 st.subheader("Скачать шаблоны Excel")

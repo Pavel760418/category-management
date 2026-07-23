@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+set -euo pipefail
 pip install -r requirements.txt
-streamlit run app/main.py
+streamlit run streamlit_app.py
