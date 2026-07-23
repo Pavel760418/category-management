@@ -1,0 +1,425 @@
+# Единый источник правды для полей.
+# canonical = внутренний ключ для расчётов и бизнес-логики
+# display_name_ru / description_ru / example_ru = только user-facing слой
+
+fields:
+  # --- SKU ---
+  sku_code:
+    display_name_ru: "Артикул SKU"
+    description_ru: "Уникальный код (артикул) товарной позиции"
+    example_ru: "SKU-001"
+    aliases_ru:
+      - "артикул sku"
+      - "артикул"
+      - "код sku"
+      - "код"
+      - "номенклатура код"
+    aliases_en:
+      - "sku"
+      - "sku_code"
+      - "sku id"
+      - "sku_id"
+
+  sku_name:
+    display_name_ru: "Наименование товара"
+    description_ru: "Полное или торговое название SKU"
+    example_ru: "Корм сухой для кошек 1 кг"
+    aliases_ru:
+      - "наименование товара"
+      - "наименование"
+      - "товар"
+      - "номенклатура"
+    aliases_en:
+      - "sku_name"
+      - "product_name"
+      - "sku name"
+      - "name"
+
+  category:
+    display_name_ru: "Категория"
+    description_ru: "Название товарной категории"
+    example_ru: "Товары для животных"
+    aliases_ru:
+      - "категория"
+      - "товарная категория"
+    aliases_en:
+      - "category"
+
+  subcategory:
+    display_name_ru: "Подкатегория"
+    description_ru: "Подкатегория или товарная группа внутри категории"
+    example_ru: "Корма"
+    aliases_ru:
+      - "подкатегория"
+      - "товарная группа"
+      - "группа"
+    aliases_en:
+      - "subcategory"
+      - "group"
+      - "product_group"
+
+  sales_value:
+    display_name_ru: "Продажи, руб."
+    description_ru: "Выручка (оборот) за период в рублях"
+    example_ru: "125000"
+    aliases_ru:
+      - "продажи, руб."
+      - "продажи руб"
+      - "выручка"
+      - "оборот"
+      - "продажи руб."
+    aliases_en:
+      - "sales_value"
+      - "sales rub"
+      - "revenue"
+
+  sales_qty:
+    display_name_ru: "Продажи, шт."
+    description_ru: "Количество проданных единиц за период"
+    example_ru: "420"
+    aliases_ru:
+      - "продажи, шт."
+      - "продажи шт"
+      - "количество"
+      - "шт"
+      - "продажи шт."
+    aliases_en:
+      - "sales_qty"
+      - "qty"
+      - "quantity"
+
+  cogs_value:
+    display_name_ru: "Себестоимость, руб."
+    description_ru: "Себестоимость реализованного товара за период в рублях"
+    example_ru: "86000"
+    aliases_ru:
+      - "себестоимость, руб."
+      - "себестоимость"
+      - "себестоимость расхода"
+    aliases_en:
+      - "cogs"
+      - "cogs_value"
+      - "cost of goods"
+
+  stock_qty:
+    display_name_ru: "Остаток, шт."
+    description_ru: "Текущий остаток на складе/в магазине в штуках"
+    example_ru: "90"
+    aliases_ru:
+      - "остаток, шт."
+      - "остаток"
+      - "остаток шт"
+      - "остаток шт."
+    aliases_en:
+      - "stock_qty"
+      - "stock"
+      - "inventory_qty"
+
+  purchase_price:
+    display_name_ru: "Цена закупки, руб."
+    description_ru: "Средняя закупочная цена единицы товара"
+    example_ru: "955"
+    aliases_ru:
+      - "цена закупки, руб."
+      - "цена закупки"
+      - "закуп цена"
+      - "средняя закупочная"
+    aliases_en:
+      - "purchase_price"
+      - "buy_price"
+      - "cost_price"
+
+  shelf_meters:
+    display_name_ru: "Длина выкладки, м"
+    description_ru: "Погонные метры полки, занятые SKU"
+    example_ru: "2.5"
+    aliases_ru:
+      - "длина выкладки, м"
+      - "длина выкладки"
+      - "полка м"
+      - "погонные метры"
+      - "выкладка м"
+    aliases_en:
+      - "shelf_meters"
+      - "shelf_length_m"
+      - "shelf meters"
+      - "facing_meters"
+
+  prior_sales_value:
+    display_name_ru: "Продажи LFL, руб."
+    description_ru: "Продажи за сопоставимый период прошлого года в рублях (для LFL)"
+    example_ru: "118000"
+    aliases_ru:
+      - "продажи lfl, руб."
+      - "продажи lfl руб"
+      - "продажи пг руб"
+      - "продажи прошлого года, руб."
+      - "продажи пг, руб."
+    aliases_en:
+      - "prior_sales_value"
+      - "lfl_sales_value"
+      - "sales ly"
+      - "lfl sales prior"
+
+  prior_sales_qty:
+    display_name_ru: "Продажи LFL, шт."
+    description_ru: "Продажи за сопоставимый период прошлого года в штуках"
+    example_ru: "390"
+    aliases_ru:
+      - "продажи lfl, шт."
+      - "продажи lfl шт"
+      - "продажи пг шт"
+      - "продажи прошлого года, шт."
+      - "продажи пг, шт."
+    aliases_en:
+      - "prior_sales_qty"
+      - "lfl_sales_qty"
+      - "qty ly"
+
+  prior_gp_value:
+    display_name_ru: "Валовая прибыль LFL, руб."
+    description_ru: "Валовая прибыль за сопоставимый период прошлого года"
+    example_ru: "30000"
+    aliases_ru:
+      - "валовая прибыль lfl, руб."
+      - "валовая прибыль lfl"
+      - "вп пг"
+      - "вп прошлого года"
+      - "валовая прибыль пг, руб."
+    aliases_en:
+      - "prior_gp_value"
+      - "lfl_gp_value"
+      - "gp ly"
+
+  store_name:
+    display_name_ru: "Магазин"
+    description_ru: "Название или код магазина"
+    example_ru: "Ленинград"
+    aliases_ru:
+      - "магазин"
+      - "торговая точка"
+      - "тто"
+    aliases_en:
+      - "store_name"
+      - "store"
+      - "shop"
+
+  format_name:
+    display_name_ru: "Формат магазина"
+    description_ru: "Формат торговой точки (супермаркет, гипермаркет и т.п.)"
+    example_ru: "Супермаркет"
+    aliases_ru:
+      - "формат магазина"
+      - "формат"
+    aliases_en:
+      - "format_name"
+      - "store_format"
+      - "format"
+
+  period_months:
+    display_name_ru: "Период, мес."
+    description_ru: "Длительность анализируемого периода в месяцах (обычно 1–12)"
+    example_ru: "6"
+    aliases_ru:
+      - "период, мес."
+      - "период мес"
+      - "период"
+      - "месяцев"
+    aliases_en:
+      - "period_months"
+      - "months"
+      - "period"
+
+  current_role:
+    display_name_ru: "Роль SKU"
+    description_ru: "Текущая ассортиментная роль позиции (например: Базовый, Новинка)"
+    example_ru: "Базовый"
+    aliases_ru:
+      - "роль sku"
+      - "роль"
+      - "ассортиментная роль"
+    aliases_en:
+      - "current_role"
+      - "sku_role"
+      - "role"
+
+  # --- Competitors ---
+  competitor_name:
+    display_name_ru: "Конкурент"
+    description_ru: "Название конкурирующей сети или магазина"
+    example_ru: "Конкурент А"
+    aliases_ru:
+      - "конкурент"
+      - "название конкурента"
+      - "сеть конкурента"
+    aliases_en:
+      - "competitor_name"
+      - "competitor"
+      - "rival"
+
+  price_index:
+    display_name_ru: "Ценовой индекс"
+    description_ru: "Отношение цены конкурента к нашей (1.0 = паритет)"
+    example_ru: "1.04"
+    aliases_ru:
+      - "ценовой индекс"
+      - "индекс цен"
+      - "индекс цены"
+    aliases_en:
+      - "price_index"
+      - "price index"
+      - "pi"
+
+  width_sku:
+    display_name_ru: "Ширина ассортимента, SKU"
+    description_ru: "Количество SKU у конкурента в категории"
+    example_ru: "220"
+    aliases_ru:
+      - "ширина ассортимента, sku"
+      - "ширина ассортимента"
+      - "кол-во sku конкурента"
+      - "ширина sku"
+    aliases_en:
+      - "width_sku"
+      - "assortment_width"
+      - "sku_width"
+
+  depth:
+    display_name_ru: "Глубина ассортимента"
+    description_ru: "Оценка глубины ассортимента (например, число SKU в ключевой подкатегории)"
+    example_ru: "6"
+    aliases_ru:
+      - "глубина ассортимента"
+      - "глубина"
+    aliases_en:
+      - "depth"
+      - "assortment_depth"
+
+  stm_share:
+    display_name_ru: "Доля СТМ"
+    description_ru: "Доля собственной торговой марки у конкурента (доля от 0 до 1 или %)"
+    example_ru: "0.12"
+    aliases_ru:
+      - "доля стм"
+      - "стм"
+      - "доля собственной марки"
+    aliases_en:
+      - "stm_share"
+      - "private_label_share"
+      - "pl_share"
+
+  promo_share:
+    display_name_ru: "Доля промо"
+    description_ru: "Доля промо-продаж у конкурента (доля от 0 до 1 или %)"
+    example_ru: "0.18"
+    aliases_ru:
+      - "доля промо"
+      - "промо"
+      - "доля акций"
+    aliases_en:
+      - "promo_share"
+      - "promotion_share"
+
+  comments:
+    display_name_ru: "Комментарий"
+    description_ru: "Свободный комментарий по наблюдению"
+    example_ru: "Широкий ассортимент по кормам"
+    aliases_ru:
+      - "комментарий"
+      - "примечание"
+      - "заметки"
+    aliases_en:
+      - "comments"
+      - "comment"
+      - "notes"
+
+  # --- Goals ---
+  metric_name:
+    display_name_ru: "Показатель"
+    description_ru: "Название целевого KPI (на русском или внутреннем коде)"
+    example_ru: "Оборот"
+    aliases_ru:
+      - "показатель"
+      - "метрика"
+      - "kpi"
+      - "название показателя"
+    aliases_en:
+      - "metric_name"
+      - "metric"
+      - "kpi_name"
+
+  target_3m:
+    display_name_ru: "Цель на 3 мес."
+    description_ru: "Целевое значение показателя на горизонте 3 месяцев"
+    example_ru: "2700000"
+    aliases_ru:
+      - "цель на 3 мес."
+      - "цель 3 мес"
+      - "цель 3м"
+      - "target 3m"
+    aliases_en:
+      - "target_3m"
+      - "target3m"
+      - "goal_3m"
+
+  target_6m:
+    display_name_ru: "Цель на 6 мес."
+    description_ru: "Целевое значение показателя на горизонте 6 месяцев"
+    example_ru: "5500000"
+    aliases_ru:
+      - "цель на 6 мес."
+      - "цель 6 мес"
+      - "цель 6м"
+      - "target 6m"
+    aliases_en:
+      - "target_6m"
+      - "target6m"
+      - "goal_6m"
+
+  notes:
+    display_name_ru: "Пояснение"
+    description_ru: "Пояснение к цели или источнику норматива"
+    example_ru: "Цель по обороту категории"
+    aliases_ru:
+      - "пояснение"
+      - "примечание"
+      - "описание цели"
+    aliases_en:
+      - "notes"
+      - "note"
+      - "description"
+
+# Словарь для сопоставления русских названий KPI с внутренними кодами
+metric_aliases:
+  turnover:
+    display_name_ru: "Оборот"
+    aliases_ru: ["оборот", "выручка", "продажи"]
+    aliases_en: ["turnover", "sales", "revenue"]
+  gross_profit:
+    display_name_ru: "Валовая прибыль"
+    aliases_ru: ["валовая прибыль", "вп"]
+    aliases_en: ["gross_profit", "gp"]
+  margin_pct:
+    display_name_ru: "Маржа %"
+    aliases_ru: ["маржа %", "маржа", "маржинальность"]
+    aliases_en: ["margin_pct", "margin", "margin_percent"]
+  stock_days:
+    display_name_ru: "Дни запаса"
+    aliases_ru: ["дни запаса", "запас дни"]
+    aliases_en: ["stock_days", "days_of_stock", "dos"]
+  sku_count:
+    display_name_ru: "Кол-во SKU"
+    aliases_ru: ["кол-во sku", "количество sku", "число sku"]
+    aliases_en: ["sku_count", "skus", "assortment_size"]
+  lfl_sales:
+    display_name_ru: "LFL продажи"
+    aliases_ru: ["lfl продажи", "продажи lfl", "lfl"]
+    aliases_en: ["lfl_sales", "lfl"]
+  inventory_turnover:
+    display_name_ru: "Оборачиваемость"
+    aliases_ru: ["оборачиваемость", "оборот запаса"]
+    aliases_en: ["inventory_turnover", "turnover_rate"]
+  revenue_per_shelf:
+    display_name_ru: "Выручка на пог. м"
+    aliases_ru: ["выручка на пог. м", "выручка на метр", "эффективность выкладки"]
+    aliases_en: ["revenue_per_shelf", "sales_per_meter"]

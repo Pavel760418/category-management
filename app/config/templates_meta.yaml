@@ -1,0 +1,137 @@
+# Метаданные пользовательских Excel-шаблонов (только русский user-facing слой).
+# Внутренние ключи шаблонов (sku / competitor / goals) остаются английскими.
+
+templates:
+  sku:
+    key: sku
+    file_name_ru: "Шаблон_данных_SKU.xlsx"
+    sheet_name_ru: "Данные SKU"
+    instruction_sheet_ru: "Инструкция"
+    title_ru: "Шаблон загрузки данных SKU"
+    short_label_ru: "Данные SKU"
+    upload_label_ru: "Загрузить файл данных SKU"
+    description_ru: "Основной шаблон для загрузки ассортимента, продаж, остатков и LFL по SKU."
+    required_fields:
+      - sku_code
+      - sku_name
+      - category
+      - subcategory
+      - sales_value
+      - sales_qty
+      - cogs_value
+      - stock_qty
+      - purchase_price
+    optional_fields:
+      - shelf_meters
+      - prior_sales_value
+      - prior_sales_qty
+      - prior_gp_value
+      - store_name
+      - format_name
+      - period_months
+      - current_role
+    sample_rows:
+      - sku_code: "SKU-001"
+        sku_name: "Корм сухой для кошек 1 кг"
+        category: "Товары для животных"
+        subcategory: "Корма"
+        sales_value: 125000
+        sales_qty: 420
+        cogs_value: 86000
+        stock_qty: 90
+        purchase_price: 955
+        shelf_meters: 2.5
+        prior_sales_value: 118000
+        prior_sales_qty: 390
+        prior_gp_value: 30000
+        store_name: "Ленинград"
+        format_name: "Супермаркет"
+        period_months: 6
+        current_role: "Базовый"
+    instruction_ru: |
+      Как заполнять шаблон «Данные SKU»
+
+      1. Заполняйте лист «Данные SKU». Не переименовывайте названия колонок.
+      2. Первая строка — заголовки, со второй строки вводите данные.
+      3. Обязательные поля отмечены на листе «Инструкция» и в интерфейсе загрузки.
+      4. Числовые поля указывайте без валютных символов (например: 125000).
+      5. Период, мес. — целое число от 1 до 12.
+      6. Если часть необязательных полей пустая, система продолжит работу и покажет ограничения анализа.
+      7. Можно загружать файлы с альтернативными русскими или английскими названиями колонок — сработает автосопоставление.
+
+  competitor:
+    key: competitor
+    file_name_ru: "Шаблон_конкуренты.xlsx"
+    sheet_name_ru: "Конкуренты"
+    instruction_sheet_ru: "Инструкция"
+    title_ru: "Шаблон конкурентного мониторинга"
+    short_label_ru: "Конкуренты"
+    upload_label_ru: "Загрузить файл конкурентов"
+    description_ru: "Шаблон для сравнения цены, ширины ассортимента и промо с конкурентами."
+    required_fields:
+      - competitor_name
+      - category
+      - price_index
+    optional_fields:
+      - width_sku
+      - depth
+      - shelf_meters
+      - stm_share
+      - promo_share
+      - comments
+    sample_rows:
+      - competitor_name: "Конкурент А"
+        category: "Товары для животных"
+        price_index: 1.04
+        width_sku: 220
+        depth: 6
+        shelf_meters: 5.5
+        stm_share: 0.12
+        promo_share: 0.18
+        comments: "Широкий ассортимент по кормам"
+    instruction_ru: |
+      Как заполнять шаблон «Конкуренты»
+
+      1. Заполняйте лист «Конкуренты».
+      2. Обязательны: Конкурент, Категория, Ценовой индекс.
+      3. Ценовой индекс: 1.0 = паритет, >1 = конкурент дороже, <1 = конкурент дешевле.
+      4. Доля СТМ и доля промо указывайте как долю (0.12) или процент — система примет оба варианта при ручной проверке.
+      5. Без этого файла конкурентный блок будет ограничен, остальная аналитика сохранится.
+
+  goals:
+    key: goals
+    file_name_ru: "Шаблон_цели_категории.xlsx"
+    sheet_name_ru: "Цели категории"
+    instruction_sheet_ru: "Инструкция"
+    title_ru: "Шаблон целевых KPI категории"
+    short_label_ru: "Цели категории"
+    upload_label_ru: "Загрузить файл целей категории"
+    description_ru: "Шаблон целевых показателей категории на горизонте 3 и 6 месяцев."
+    required_fields:
+      - metric_name
+      - target_3m
+      - target_6m
+    optional_fields:
+      - notes
+    sample_rows:
+      - metric_name: "Оборот"
+        target_3m: 2700000
+        target_6m: 5500000
+        notes: "Цель по обороту категории"
+      - metric_name: "Дни запаса"
+        target_3m: 21
+        target_6m: 21
+        notes: "Целевые дни запаса"
+      - metric_name: "Кол-во SKU"
+        target_3m: 50
+        target_6m: 50
+        notes: "Целевое количество SKU"
+    instruction_ru: |
+      Как заполнять шаблон «Цели категории»
+
+      1. В колонке «Показатель» используйте русские названия KPI:
+         Оборот, Валовая прибыль, Маржа %, Дни запаса, Кол-во SKU,
+         LFL продажи, Оборачиваемость, Выручка на пог. м.
+      2. Допустимы и внутренние английские коды (turnover, stock_days и т.д.).
+      3. Укажите цели на 3 и 6 месяцев.
+      4. Если файл не загружен, система использует расчётные ориентиры по умолчанию.
